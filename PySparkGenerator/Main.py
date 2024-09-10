@@ -30,8 +30,11 @@ dataFrame = spark.read.csv(f"{inputDataFramePath}.csv", header=True, sep=';').ca
 """The variable where we save the time each iteration takes"""
 time_list = []
 
+"""Variable that defines how many times the program should iterate over the data"""
+iteration = 10
+
 """Iterate 10 times over the same task, so we can get the average time it takes over 10 tests"""
-for _ in range(10):
+for _ in range(iteration):
     """Start the timer, not including the time it takes to read the csv"""
     beginTime = time.time()
 

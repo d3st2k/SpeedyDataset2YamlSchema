@@ -4,7 +4,7 @@ import yaml
 """General methods that are dictate what stable version the file is currently in, how the file is read, created and how the metadata is dumped into it"""
 
 class generalMethods:
-    def __init__(self, majorVersion: int, minorVersion : int) -> None:
+    def __init__(self, majorVersion: int = 0, minorVersion : int = 0) -> None:
         """
         Constructor of the class general methods 
         ...
@@ -21,8 +21,8 @@ class generalMethods:
         ----------
         None
         """
-        self.majorVersion = majorVersion
-        self.minorVersion = minorVersion
+        self.majorVersion = abs(majorVersion)
+        self.minorVersion = abs(minorVersion)
         self.stableVersion = f"{self.majorVersion}.{self.minorVersion}"
 
     def writeMetadataFile(self, schema: dict, outputMetadataPath: str, fileName: str, outputFileType : str = "yaml") -> None:
